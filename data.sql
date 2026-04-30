@@ -1,0 +1,107 @@
+-- ============================================================
+-- Retail Sales SQL Analysis
+-- data.sql — Sample data for all three tables
+-- Author: Pheisel Gopito
+-- NOTE: Run schema.sql first before running this file
+-- ============================================================
+
+USE retail_db;
+
+-- ── Customers ─────────────────────────────────────────────
+INSERT INTO customers (first_name, last_name, email, city, gender, joined_date) VALUES
+('Aisha',   'Ramjee',    'aisha.r@email.com',    'Port Louis',    'Female', '2023-01-15'),
+('Ravi',    'Naidoo',    'ravi.n@email.com',     'Curepipe',      'Male',   '2023-02-20'),
+('Sophie',  'Morel',     'sophie.m@email.com',   'Grand Baie',    'Female', '2023-03-05'),
+('Kevin',   'Lim',       'kevin.l@email.com',    'Quatre Bornes', 'Male',   '2023-03-18'),
+('Priya',   'Gobin',     'priya.g@email.com',    'Rose Hill',     'Female', '2023-04-02'),
+('Marc',    'Labonte',   'marc.lb@email.com',    'Port Louis',    'Male',   '2023-05-11'),
+('Fatima',  'Oozeer',    'fatima.o@email.com',   'Vacoas',        'Female', '2023-06-07'),
+('Jean',    'Petit',     'jean.p@email.com',     'Curepipe',      'Male',   '2023-07-22'),
+('Nisha',   'Foolchand', 'nisha.f@email.com',    'Floreal',       'Female', '2023-08-14'),
+('David',   'Chan',      'david.c@email.com',    'Grand Baie',    'Male',   '2023-09-30'),
+('Leila',   'Beeharry',  'leila.b@email.com',    'Rose Hill',     'Female', '2023-10-03'),
+('Ashwin',  'Seeburn',   'ashwin.s@email.com',   'Quatre Bornes', 'Male',   '2023-11-19'),
+('Clara',   'Dumont',    'clara.d@email.com',    'Port Louis',    'Female', '2023-12-01'),
+('Rohan',   'Gujadhur',  'rohan.g@email.com',    'Vacoas',        'Male',   '2024-01-08'),
+('Yasmine', 'Edoo',      'yasmine.e@email.com',  'Floreal',       'Female', '2024-02-14');
+
+-- ── Products ──────────────────────────────────────────────
+INSERT INTO products (product_name, category, price, supplier, stock_qty, reorder_level) VALUES
+('Rice 5kg',            'Grocery',       185.00, 'Island Foods Ltd',   120, 30),
+('Cooking Oil 2L',      'Grocery',        95.00, 'Island Foods Ltd',    85, 25),
+('Cheddar Cheese 500g', 'Dairy',         145.00, 'Maurilait',           60, 20),
+('Whole Milk 1L',       'Dairy',          32.00, 'Maurilait',          200, 50),
+('Chicken Breast 1kg',  'Meat',          220.00, 'Avipro',              75, 20),
+('Beef Mince 500g',     'Meat',          175.00, 'Avipro',              50, 15),
+('White Bread',         'Bakery',         28.00, 'La Boulangerie',     150, 40),
+('Croissant 4-pack',    'Bakery',         65.00, 'La Boulangerie',      80, 25),
+('Orange Juice 1L',     'Beverages',      78.00, 'Tropical Drinks Co',  95, 30),
+('Sparkling Water 6pk', 'Beverages',      55.00, 'Tropical Drinks Co', 110, 30),
+('Shampoo 400ml',       'Personal Care', 120.00, 'Unilever MU',         45, 15),
+('Body Lotion 250ml',   'Personal Care',  95.00, 'Unilever MU',         40, 15),
+('Laundry Powder 2kg',  'Household',     210.00, 'P&G Mauritius',       55, 20),
+('Dish Soap 500ml',     'Household',      48.00, 'P&G Mauritius',       90, 25),
+('Eggs 12-pack',        'Dairy',          72.00, 'Maurilait',          130, 35);
+
+-- ── Sales ─────────────────────────────────────────────────
+INSERT INTO sales (customer_id, product_id, quantity, unit_price, sale_date, payment_method, store_location) VALUES
+(1,  5,  2, 220.00, '2024-01-03', 'Card', 'Port Louis'),
+(2,  1,  1, 185.00, '2024-01-05', 'Cash', 'Curepipe'),
+(3,  7,  3,  28.00, '2024-01-07', 'Card', 'Grand Baie'),
+(4,  3,  1, 145.00, '2024-01-10', 'Cash', 'Quatre Bornes'),
+(5,  9,  2,  78.00, '2024-01-12', 'Card', 'Rose Hill'),
+(6,  13, 1, 210.00, '2024-01-15', 'Card', 'Port Louis'),
+(7,  4,  4,  32.00, '2024-01-18', 'Cash', 'Vacoas'),
+(8,  15, 2,  72.00, '2024-01-20', 'Card', 'Curepipe'),
+(9,  11, 1, 120.00, '2024-01-22', 'Cash', 'Floreal'),
+(10, 6,  2, 175.00, '2024-01-25', 'Card', 'Grand Baie'),
+(11, 2,  2,  95.00, '2024-02-02', 'Cash', 'Rose Hill'),
+(12, 8,  1,  65.00, '2024-02-05', 'Card', 'Quatre Bornes'),
+(13, 5,  1, 220.00, '2024-02-07', 'Card', 'Port Louis'),
+(14, 10, 3,  55.00, '2024-02-10', 'Cash', 'Vacoas'),
+(15, 1,  2, 185.00, '2024-02-13', 'Card', 'Floreal'),
+(1,  14, 2,  48.00, '2024-02-15', 'Cash', 'Port Louis'),
+(2,  7,  2,  28.00, '2024-02-18', 'Card', 'Curepipe'),
+(3,  12, 1,  95.00, '2024-02-20', 'Card', 'Grand Baie'),
+(4,  4,  3,  32.00, '2024-02-22', 'Cash', 'Quatre Bornes'),
+(5,  6,  1, 175.00, '2024-02-25', 'Card', 'Rose Hill'),
+(6,  15, 2,  72.00, '2024-03-01', 'Card', 'Port Louis'),
+(7,  9,  1,  78.00, '2024-03-04', 'Cash', 'Vacoas'),
+(8,  3,  2, 145.00, '2024-03-06', 'Card', 'Curepipe'),
+(9,  5,  3, 220.00, '2024-03-09', 'Cash', 'Floreal'),
+(10, 1,  1, 185.00, '2024-03-11', 'Card', 'Grand Baie'),
+(11, 13, 2, 210.00, '2024-03-14', 'Card', 'Rose Hill'),
+(12, 7,  4,  28.00, '2024-03-17', 'Cash', 'Quatre Bornes'),
+(13, 2,  1,  95.00, '2024-03-19', 'Card', 'Port Louis'),
+(14, 11, 2, 120.00, '2024-03-22', 'Cash', 'Vacoas'),
+(15, 6,  1, 175.00, '2024-03-25', 'Card', 'Floreal'),
+(1,  4,  5,  32.00, '2024-04-02', 'Cash', 'Port Louis'),
+(2,  15, 1,  72.00, '2024-04-04', 'Card', 'Curepipe'),
+(3,  8,  2,  65.00, '2024-04-07', 'Card', 'Grand Baie'),
+(4,  5,  2, 220.00, '2024-04-09', 'Cash', 'Quatre Bornes'),
+(5,  10, 2,  55.00, '2024-04-11', 'Card', 'Rose Hill'),
+(6,  1,  3, 185.00, '2024-04-14', 'Card', 'Port Louis'),
+(7,  3,  1, 145.00, '2024-04-16', 'Cash', 'Vacoas'),
+(8,  14, 3,  48.00, '2024-04-19', 'Card', 'Curepipe'),
+(9,  7,  2,  28.00, '2024-04-21', 'Cash', 'Floreal'),
+(10, 12, 2,  95.00, '2024-04-24', 'Card', 'Grand Baie'),
+(11, 6,  3, 175.00, '2024-05-02', 'Card', 'Rose Hill'),
+(12, 9,  2,  78.00, '2024-05-05', 'Cash', 'Quatre Bornes'),
+(13, 4,  4,  32.00, '2024-05-08', 'Card', 'Port Louis'),
+(14, 13, 1, 210.00, '2024-05-10', 'Cash', 'Vacoas'),
+(15, 5,  2, 220.00, '2024-05-13', 'Card', 'Floreal'),
+(1,  15, 3,  72.00, '2024-05-16', 'Card', 'Port Louis'),
+(2,  2,  2,  95.00, '2024-05-19', 'Cash', 'Curepipe'),
+(3,  11, 1, 120.00, '2024-05-21', 'Card', 'Grand Baie'),
+(4,  1,  2, 185.00, '2024-05-24', 'Cash', 'Quatre Bornes'),
+(5,  8,  3,  65.00, '2024-05-27', 'Card', 'Rose Hill'),
+(6,  7,  3,  28.00, '2024-06-02', 'Cash', 'Port Louis'),
+(7,  5,  1, 220.00, '2024-06-05', 'Card', 'Vacoas'),
+(8,  10, 4,  55.00, '2024-06-08', 'Card', 'Curepipe'),
+(9,  3,  1, 145.00, '2024-06-11', 'Cash', 'Floreal'),
+(10, 14, 2,  48.00, '2024-06-13', 'Card', 'Grand Baie'),
+(11, 4,  3,  32.00, '2024-06-16', 'Cash', 'Rose Hill'),
+(12, 6,  2, 175.00, '2024-06-18', 'Card', 'Quatre Bornes'),
+(13, 13, 1, 210.00, '2024-06-21', 'Card', 'Port Louis'),
+(14, 9,  2,  78.00, '2024-06-24', 'Cash', 'Vacoas'),
+(15, 15, 2,  72.00, '2024-06-27', 'Card', 'Floreal');
